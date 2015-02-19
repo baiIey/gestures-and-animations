@@ -35,6 +35,10 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="message" id="nsm-4P-ZM1">
                                         <rect key="frame" x="0.0" y="78" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="mcH-Wy-F0I" appends="YES" id="9jk-62-nGG"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -46,10 +50,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="messageImageView" destination="nsm-4P-ZM1" id="u2M-Df-gBo"/>
                         <outlet property="scrollView" destination="aFO-PE-USm" id="YjE-zV-a2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="mcH-Wy-F0I" userLabel="Message Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="messagePanGesture:" destination="vXZ-lx-hvc" id="FkA-AY-6X5"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="301" y="520"/>
         </scene>
