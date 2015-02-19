@@ -68,7 +68,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             
           
             // println("messageOrgin + translation \(messageOrigin.x + translation.x)")
-            println("translation only \(translation.x)")
+            println("translation on x-axis: \(translation.x)")
         } else if (sender.state == UIGestureRecognizerState.Ended){
             // ended pan
             // println("Pan ended")
