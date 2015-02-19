@@ -23,7 +23,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         
         // call combined size for vertical scrolling for the feed, search, and get me to zero images
-        scrollView.contentSize = CGSize(width: 320, height: 1280)
+        scrollView.contentSize = CGSize(width: 320, height: 1366)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +44,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             messageImageView.center = CGPoint(x: messageOrigin.x + translation.x, y: messageImageView.center.y)
         } else if (sender.state == UIGestureRecognizerState.Ended){
             // ended pan
-            // println("Pan ended")
+            println("Pan ended")
+            messageImageView.center = messageOrigin
         }
     }
     

@@ -20,10 +20,6 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="feed" id="0C0-W2-ZoB">
-                                        <rect key="frame" x="0.0" y="78" width="320" height="1202"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="help_label" id="M20-oB-77C">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -39,6 +35,10 @@
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="mcH-Wy-F0I" appends="YES" id="9jk-62-nGG"/>
                                         </connections>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="feed" id="0C0-W2-ZoB">
+                                        <rect key="frame" x="0.0" y="164" width="320" height="1202"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
