@@ -28,6 +28,11 @@ Upon release, the message should continue to reveal the yellow background. When 
 * Optional: Shake to undo.
 
 #### Notes
+[Swift only accepts values between 0.0 and 1.0](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIColor_Class/index.html#//apple_ref/occ/clm/UIColor/colorWithRed%3agreen%3ablue%3aalpha%3a) when declaring RGBA, while RGB stores values between 0 and 255. (The alpha in RGBA being between 0.0 and 1.0.) After searching [Stack Overlow](http://stackoverflow.com/questions/24310696/uicolor-not-working-with-rgba-value-ios-7-swift), I found I needed to divide the colors I selected by 255 to get the new ratio.
+
+Fortunately, we can before that conversion right in the declaration.
+
+Thus, my emerald green, `rgba(46, 204, 113, 1.0)`, moved to `UIColor(red: 46, green: 204, blue: 133, alpha: 1.0)` before becoming `UIColor(red: 46/255, green: 204/255, blue: 133/255, alpha: 1.0)`.
 
 
 #### Walkthrough of all user stories
@@ -35,3 +40,9 @@ Upon release, the message should continue to reveal the yellow background. When 
 ![Video Walkthrough](image.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+Background colors from [Flat UI Colors](http://flatuicolors.com/).
+
+RGB to Swift UIColor math from [Stack Overflow](http://stackoverflow.com/questions/24310696/uicolor-not-working-with-rgba-value-ios-7-swift).
+
+iOS Developer Library [UIColor Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIColor_Class/index.html#//apple_ref/occ/clm/UIColor/colorWithRed%3agreen%3ablue%3aalpha%3a)

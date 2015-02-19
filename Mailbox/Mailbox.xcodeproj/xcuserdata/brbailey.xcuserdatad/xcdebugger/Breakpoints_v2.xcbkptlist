@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mailbox/MailboxViewController.swift"
-            timestampString = "446051189.225895"
+            timestampString = "446058758.782629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
