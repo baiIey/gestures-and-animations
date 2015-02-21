@@ -68,8 +68,17 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             messageImageView.center = CGPoint(x: messageOrigin.x + translation.x, y: messageImageView.center.y)
             
             // detect translation, movement on x axis in points, and adust background color
+            
+            if (translation.x == 0 ) {
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 0
+                })
             // pan left a little, turn green
-            if (translation.x > 0 && translation.x < 60 ) {
+            } else if (translation.x > 0 && translation.x < 60 ) {
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
                     self.archiveIcon.alpha = 1
@@ -98,8 +107,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.listIcon.alpha = 0
                 })
 
-            // pan right a little, turn yellow
-            } else if (translation.x < -0 && translation.x > -59) {
+            // pan right a little, reveal icon while gray
+            } else if (translation.x < 0 && translation.x > -60) {
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
                     self.archiveIcon.alpha = 0
@@ -108,8 +117,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.listIcon.alpha = 0
                 })
 
-            // pan right a lot, yellow
-            } else if (translation.x < -60 && translation.x > -259){
+            // pan right a little, turn yellow
+            } else if (translation.x < -60 && translation.x > -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.backgroundColor.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 88/255, alpha: 1.0)
                     self.archiveIcon.alpha = 0
@@ -138,7 +147,6 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.listIcon.alpha = 0
                 })
             }
-            
           
             // println("messageOrgin + translation \(messageOrigin.x + translation.x)")
             println("translation on x-axis: \(translation.x)")

@@ -92,7 +92,7 @@
                                 </connections>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleAspectFill" image="reschedule" id="Ws4-Se-v1a">
-                                <rect key="frame" x="-1" y="-5" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="e68-5K-r5b" appends="YES" id="6ZO-ZM-rdJ"/>
