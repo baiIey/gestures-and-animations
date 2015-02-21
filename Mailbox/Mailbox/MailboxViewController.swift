@@ -14,6 +14,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var backgroundColor: UIView!
+    @IBOutlet weak var feedView: UIImageView!
     
     // message icons
     @IBOutlet weak var archiveIcon: UIImageView!
@@ -87,7 +88,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.listIcon.alpha = 0
                 })
                 
-            } else if (translation.x > 60 && translation.x < 259){
+            } else if (translation.x > 60 && translation.x < 260){
                 //println("translation.x >60")
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.backgroundColor.backgroundColor = UIColor(red: 165/255, green: 214/255, blue: 167/255, alpha: 1.0)
@@ -164,15 +165,19 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             } else if (translation.x > 60 && translation.x < 259){
                 //println("translation.x >60")
-
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImageView.center.x = 640
+                    self.feedView.center.y = 675
+                })
+                
                 // pan left a lot, turn red
             } else if (translation.x > 260){
 
                 // pan right a little, turn yellow
-            } else if (translation.x < -0 && translation.x > -59) {
+            } else if (translation.x < 0 && translation.x > -59) {
                 
                 // pan right a lot, yellow
-            } else if (translation.x < -60 && translation.x > -259){
+            } else if (translation.x < -60 && translation.x > -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.rescheduleOverlay.alpha = 1.0
                 })

@@ -105,6 +105,7 @@
                         <outlet property="archiveIcon" destination="S79-fQ-tcG" id="wDm-9P-s9U"/>
                         <outlet property="backgroundColor" destination="l1Q-Gg-6Cs" id="pDm-hm-nbe"/>
                         <outlet property="deleteIcon" destination="Jih-Im-PeE" id="1fY-Je-Jse"/>
+                        <outlet property="feedView" destination="0C0-W2-ZoB" id="DGv-4z-LZ6"/>
                         <outlet property="laterIcon" destination="bra-hc-1V3" id="hpV-R3-G14"/>
                         <outlet property="listIcon" destination="jMY-uh-9HB" id="bQ5-zX-A9Z"/>
                         <outlet property="listOverlay" destination="vyK-ka-Ppo" id="OSf-9V-fKx"/>
