@@ -43,6 +43,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         if(sender.state == UIGestureRecognizerState.Began){
             // started to pan
             messageOrigin = messageImageView.center
+
         } else if (sender.state == UIGestureRecognizerState.Changed) {
             // allows for panning on the x-axis only
             messageImageView.center = CGPoint(x: messageOrigin.x + translation.x, y: messageImageView.center.y)
@@ -69,13 +70,16 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
           
             // println("messageOrgin + translation \(messageOrigin.x + translation.x)")
             println("translation on x-axis: \(translation.x)")
+
         } else if (sender.state == UIGestureRecognizerState.Ended){
             // ended pan
             // println("Pan ended")
             // animation to slowly snap the message back into its original position
+
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.messageImageView.center = self.messageOrigin
             })
+            
         }
     }
     
