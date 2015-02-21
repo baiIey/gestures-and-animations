@@ -73,6 +73,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="list" id="vyK-ka-Ppo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e68-5K-r5b" appends="YES" id="L4m-dv-bpD"/>
+                                </connections>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="reschedule" id="Ws4-Se-v1a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e68-5K-r5b" appends="YES" id="6ZO-ZM-rdJ"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -82,7 +97,9 @@
                         <outlet property="deleteIcon" destination="Jih-Im-PeE" id="1fY-Je-Jse"/>
                         <outlet property="laterIcon" destination="bra-hc-1V3" id="hpV-R3-G14"/>
                         <outlet property="listIcon" destination="jMY-uh-9HB" id="bQ5-zX-A9Z"/>
+                        <outlet property="listOverlay" destination="vyK-ka-Ppo" id="OSf-9V-fKx"/>
                         <outlet property="messageImageView" destination="nsm-4P-ZM1" id="u2M-Df-gBo"/>
+                        <outlet property="rescheduleOverlay" destination="Ws4-Se-v1a" id="r7T-1G-2vI"/>
                         <outlet property="scrollView" destination="aFO-PE-USm" id="YjE-zV-a2Z"/>
                     </connections>
                 </viewController>
@@ -92,6 +109,11 @@
                         <action selector="messagePanGesture:" destination="vXZ-lx-hvc" id="FkA-AY-6X5"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="e68-5K-r5b">
+                    <connections>
+                        <action selector="closeOverlayDidTap:" destination="vXZ-lx-hvc" id="yXA-Yv-xvd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="301" y="520"/>
         </scene>
@@ -103,9 +125,11 @@
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
         <image name="launch" width="320" height="568"/>
+        <image name="list" width="320" height="568"/>
         <image name="list_icon" width="25" height="25"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
+        <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

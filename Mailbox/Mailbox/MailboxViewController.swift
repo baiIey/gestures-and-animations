@@ -21,6 +21,10 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var laterIcon: UIImageView!
     @IBOutlet weak var listIcon: UIImageView!
     
+    // overlays
+    @IBOutlet weak var listOverlay: UIImageView!
+    @IBOutlet weak var rescheduleOverlay: UIImageView!
+    
     // store original position of the message Facebook:Ka-Yen Aug 15...
     var messageOrigin: CGPoint!
     
@@ -28,6 +32,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Figures my background color would be controlled by a property called background color...
         backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+        listOverlay.alpha = 0
+        rescheduleOverlay.alpha = 0
 
         // Do any additional setup after loading the view.
         
@@ -38,6 +44,13 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func closeOverlayDidTap(sender: UITapGestureRecognizer) {
+        listOverlay.alpha = 0
+        rescheduleOverlay.alpha = 0
+        
+        println("Tap overlay")
     }
     
     // action for horzontal panning of the Ka-Yen Aug 15 message
@@ -57,53 +70,73 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             // detect translation, movement on x axis in points, and adust background color
             // pan left a little, turn green
             if (translation.x > 0 && translation.x < 60 ) {
-                backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
-                archiveIcon.alpha = 1
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 0
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 1
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 0
+                })
                 
             } else if (translation.x > 60 && translation.x < 259){
                 //println("translation.x >60")
-                backgroundColor.backgroundColor = UIColor(red: 165/255, green: 214/255, blue: 167/255, alpha: 1.0)
-                archiveIcon.alpha = 1
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 0
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 165/255, green: 214/255, blue: 167/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 1
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 0
+                })
+
             // pan left a lot, turn red
             } else if (translation.x > 260){
-                backgroundColor.backgroundColor = UIColor(red: 229/255, green: 115/255, blue: 115/255, alpha: 1.0)
-                archiveIcon.alpha = 0
-                deleteIcon.alpha = 1
-                laterIcon.alpha = 0
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 229/255, green: 115/255, blue: 115/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 1
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 0
+                })
+
             // pan right a little, turn yellow
             } else if (translation.x < -0 && translation.x > -59) {
-                backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
-                archiveIcon.alpha = 0
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 1
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 1
+                    self.listIcon.alpha = 0
+                })
+
+            // pan right a lot, yellow
             } else if (translation.x < -60 && translation.x > -259){
-                backgroundColor.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 88/255, alpha: 1.0)
-                archiveIcon.alpha = 0
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 1
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 255/255, green: 238/255, blue: 88/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 1
+                    self.listIcon.alpha = 0
+                })
+
             // pan right a lot, turn brown
             } else if (translation.x < -260){
-                backgroundColor.backgroundColor = UIColor(red: 188/255, green: 170/255, blue: 164/255, alpha: 1.0)
-                archiveIcon.alpha = 0
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 0
-                listIcon.alpha = 1
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 188/255, green: 170/255, blue: 164/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 1
+                })
+
             // otherwise, default to gray
             } else {
-                backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
-                archiveIcon.alpha = 0
-                deleteIcon.alpha = 0
-                laterIcon.alpha = 0
-                listIcon.alpha = 0
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.backgroundColor.backgroundColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+                    self.archiveIcon.alpha = 0
+                    self.deleteIcon.alpha = 0
+                    self.laterIcon.alpha = 0
+                    self.listIcon.alpha = 0
+                })
             }
             
           
@@ -119,19 +152,38 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.messageImageView.center = self.messageOrigin
             })
 
-            if (translation.x > 60 && translation.x < 259){
+            if (translation.x > 0 && translation.x < 60 ) {
+                
+            } else if (translation.x > 60 && translation.x < 259){
                 //println("translation.x >60")
+
                 // pan left a lot, turn red
             } else if (translation.x > 260){
+
                 // pan right a little, turn yellow
+            } else if (translation.x < -0 && translation.x > -59) {
+                
+                // pan right a lot, yellow
             } else if (translation.x < -60 && translation.x > -259){
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.rescheduleOverlay.alpha = 1.0
+                })
+                
                 // pan right a lot, turn brown
             } else if (translation.x < -260){
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.listOverlay.alpha = 1.0
+                })
+                
                 // otherwise, default to gray
             } else {
             }
+
         }
+
     }
+    
+    
     
 //    func onCustomPan(panGestureRecognizer: UIPanGestureRecognizer) {
 //        var point = panGestureRecognizer.locationInView(view)
