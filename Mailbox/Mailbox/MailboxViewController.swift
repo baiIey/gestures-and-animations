@@ -40,11 +40,26 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         
         // call combined size for vertical scrolling for the feed, search, and get me to zero images
         scrollView.contentSize = CGSize(width: 320, height: 1368)
+        
+        // set alpha to zero for all images
+        self.archiveIcon.alpha = 0
+        self.deleteIcon.alpha = 0
+        self.laterIcon.alpha = 0
+        self.listIcon.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     @IBAction func closeOverlayDidTap(sender: UITapGestureRecognizer) {
@@ -165,14 +180,30 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             } else if (translation.x > 60 && translation.x < 259){
                 //println("translation.x >60")
+                
+                // Upon release, the message should continue to reveal the green background. When the animation it complete, it should hide the message.
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImageView.center.x = 640
-                    self.feedView.center.y = 675
+                    self.delay(0.5, closure: { () -> () in
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.feedView.center.y = 675
+                        })
+                    })
+                    
                 })
                 
                 // pan left a lot, turn red
             } else if (translation.x > 260){
-
+                // Upon release, the message should continue to reveal the green background. When the animation it complete, it should hide the message.
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImageView.center.x = 640
+                    self.delay(0.5, closure: { () -> () in
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.feedView.center.y = 675
+                        })
+                    })
+                    
+                })
                 // pan right a little, turn yellow
             } else if (translation.x < 0 && translation.x > -59) {
                 
