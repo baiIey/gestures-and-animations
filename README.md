@@ -37,7 +37,7 @@ Thus, my emerald green, `rgba(46, 204, 113, 1.0)`, moved to `UIColor(red: 46, gr
 
 #### Walkthrough of all user stories
 
-![Video Walkthrough](image.gif)
+![Video Walkthrough](mailbox.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
