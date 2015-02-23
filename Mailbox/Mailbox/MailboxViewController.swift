@@ -77,6 +77,10 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         println("Tap overlay")
     }
     
+    // navigation controller
+    @IBAction func segmentedController(sender: UISegmentedControl) {
+    }
+    
     // action for horzontal panning of the Ka-Yen Aug 15 message
     @IBAction func messagePanGesture(sender: UIPanGestureRecognizer) {
         // store how far we've panned
