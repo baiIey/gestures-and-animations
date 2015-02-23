@@ -63,8 +63,10 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func closeOverlayDidTap(sender: UITapGestureRecognizer) {
-        listOverlay.alpha = 0
-        rescheduleOverlay.alpha = 0
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.listOverlay.alpha = 0
+            self.rescheduleOverlay.alpha = 0
+        })
         
         println("Tap overlay")
     }
@@ -208,15 +210,36 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             } else if (translation.x < 0 && translation.x > -59) {
                 
                 // pan right a lot, yellow
+                // message should continue to reveal the yellow background. When the animation it complete, it should show the reschedule options.
             } else if (translation.x < -60 && translation.x > -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.rescheduleOverlay.alpha = 1.0
+                    self.messageImageView.center.x = -160
+                    self.delay(0.5, closure: { () -> () in
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.feedView.center.y = 675
+                        })
+                    })
+                    self.delay(1.0, closure: { () -> () in
+                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+                            self.rescheduleOverlay.alpha = 1.0
+                        })
+                    })
                 })
                 
                 // pan right a lot, turn brown
             } else if (translation.x < -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.listOverlay.alpha = 1.0
+                    self.messageImageView.center.x = -160
+                    self.delay(0.5, closure: { () -> () in
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.feedView.center.y = 675
+                        })
+                    })
+                    self.delay(1.0, closure: { () -> () in
+                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+                            self.listOverlay.alpha = 1.0
+                        })
+                    })
                 })
                 
                 // otherwise, default to gray
