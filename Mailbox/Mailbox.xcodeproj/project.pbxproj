@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		70934BA91A93F39200B242D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70934BA81A93F39200B242D8 /* AppDelegate.swift */; };
-		70934BAB1A93F39200B242D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70934BAA1A93F39200B242D8 /* ViewController.swift */; };
 		70934BAE1A93F39200B242D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70934BAC1A93F39200B242D8 /* Main.storyboard */; };
 		70934BB01A93F39200B242D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70934BAF1A93F39200B242D8 /* Images.xcassets */; };
 		70934BBF1A93F39200B242D8 /* MailboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70934BBE1A93F39200B242D8 /* MailboxTests.swift */; };
@@ -29,7 +28,6 @@
 		70934BA31A93F39200B242D8 /* Mailbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mailbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70934BA71A93F39200B242D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70934BA81A93F39200B242D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		70934BAA1A93F39200B242D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70934BAD1A93F39200B242D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70934BAF1A93F39200B242D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70934BB81A93F39200B242D8 /* MailboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				70934BA81A93F39200B242D8 /* AppDelegate.swift */,
-				70934BAA1A93F39200B242D8 /* ViewController.swift */,
 				70934BAC1A93F39200B242D8 /* Main.storyboard */,
 				70934BCA1A93F97200B242D8 /* MailboxViewController.swift */,
 				70934BAF1A93F39200B242D8 /* Images.xcassets */,
@@ -211,7 +208,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70934BAB1A93F39200B242D8 /* ViewController.swift in Sources */,
 				70934BA91A93F39200B242D8 /* AppDelegate.swift in Sources */,
 				70934BCB1A93F97200B242D8 /* MailboxViewController.swift in Sources */,
 			);
@@ -399,6 +395,7 @@
 				70934BC41A93F39200B242D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70934BC51A93F39200B242D8 /* Build configuration list for PBXNativeTarget "MailboxTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +404,7 @@
 				70934BC71A93F39200B242D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
