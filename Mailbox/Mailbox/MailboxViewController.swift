@@ -47,7 +47,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         self.laterIcon.alpha = 0
         self.listIcon.alpha = 0
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,10 +62,16 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             dispatch_get_main_queue(), closure)
     }
     
+    // dimiss list or rechedule email overlay and animate feed over the dimissed message
     @IBAction func closeOverlayDidTap(sender: UITapGestureRecognizer) {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.listOverlay.alpha = 0
             self.rescheduleOverlay.alpha = 0
+            self.delay(0.2, closure: { () -> () in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.feedView.center.y = 675
+                })
+            })
         })
         
         println("Tap overlay")
@@ -168,7 +174,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
           
             // println("messageOrgin + translation \(messageOrigin.x + translation.x)")
             println("translation on x-axis: \(translation.x)")
-
+            
         } else if (sender.state == UIGestureRecognizerState.Ended){
             // ended pan
             // println("Pan ended")
@@ -214,13 +220,13 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             } else if (translation.x < -60 && translation.x > -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImageView.center.x = -160
+//                    self.delay(0.5, closure: { () -> () in
+//                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                            self.feedView.center.y = 675
+//                        })
+//                    })
                     self.delay(0.5, closure: { () -> () in
-                        UIView.animateWithDuration(0.5, animations: { () -> Void in
-                            self.feedView.center.y = 675
-                        })
-                    })
-                    self.delay(1.0, closure: { () -> () in
-                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        UIView.animateWithDuration(0.3, animations: { () -> Void in
                             self.rescheduleOverlay.alpha = 1.0
                         })
                     })
@@ -230,13 +236,13 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
             } else if (translation.x < -260){
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImageView.center.x = -160
+//                    self.delay(0.5, closure: { () -> () in
+//                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                            self.feedView.center.y = 675
+//                        })
+//                    })
                     self.delay(0.5, closure: { () -> () in
-                        UIView.animateWithDuration(0.5, animations: { () -> Void in
-                            self.feedView.center.y = 675
-                        })
-                    })
-                    self.delay(1.0, closure: { () -> () in
-                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        UIView.animateWithDuration(0.3, animations: { () -> Void in
                             self.listOverlay.alpha = 1.0
                         })
                     })
