@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MailboxViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
+class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // scroll view contains feed, search, and get me to zero images
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,16 +26,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     @IBOutlet weak var listOverlay: UIImageView!
     @IBOutlet weak var rescheduleOverlay: UIImageView!
     
-    // menu
-    @IBOutlet weak var menuView: UIImageView!
-    @IBOutlet weak var contentView: UIView!
-    
     // store original position of the message Facebook:Ka-Yen Aug 15...
     var messageOrigin: CGPoint!
-    
-    
-    var yOffset : CGPoint!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,25 +40,18 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         
         // call combined size for vertical scrolling for the feed, search, and get me to zero images
         scrollView.contentSize = CGSize(width: 320, height: 1368)
-        println("content offset \(scrollView.contentOffset.y)")
         
         // set alpha to zero for all images
         self.archiveIcon.alpha = 0
         self.deleteIcon.alpha = 0
         self.laterIcon.alpha = 0
         self.listIcon.alpha = 0
-        
-        //
-        var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
-        edgeGesture.edges = UIRectEdge.Left
-        contentView.addGestureRecognizer(edgeGesture)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
@@ -76,7 +61,6 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate, UISc
             ),
             dispatch_get_main_queue(), closure)
     }
-    
     
     // dimiss list or rechedule email overlay and animate feed over the dimissed message
     @IBAction func closeOverlayDidTap(sender: UITapGestureRecognizer) {
@@ -98,10 +82,6 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         // store how far we've panned
         var translation = sender.translationInView(view)
         var location = sender.locationInView(view)
-        
-        if (scrollView.contentOffset.y > 10){
-            println("Why!?")
-        }
 
         if(sender.state == UIGestureRecognizerState.Began){
             // started to pan
